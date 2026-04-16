@@ -14,6 +14,11 @@ npm run test:report
 
 Estrutura principal:
 
+- `playwright.config.ts` - configuração global
+- `tests/` - specs de teste (organizados por feature em `tests/specs`)
+- `pages/` - Page Objects (POM)
+- `fixtures/` - helpers/fixtures
+- `reports/` - relatórios e artefatos
 
 Boas práticas:
 
