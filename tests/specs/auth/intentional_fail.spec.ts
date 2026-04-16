@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/LoginPage';
 
+// await expect(page).toHaveURL(/inventory.html/);
 // Cenário intencionalmente falho: espera que o usuário bloqueado consiga logar.
 test('cenário intencionalmente falho — locked_out_user deveria autenticar', async ({ page }) => {
   const login = new LoginPage(page);
