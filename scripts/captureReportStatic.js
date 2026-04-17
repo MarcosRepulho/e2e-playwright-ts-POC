@@ -41,7 +41,7 @@ const { pathToFileURL } = require('url');
         x: Math.max(0, box.x - 20),
         y: Math.max(0, box.y - 120),
         width: Math.min(1100, box.width + 40),
-        height: Math.min(900, box.height + 240)
+        height: Math.min(900, box.height + 240),
       };
       await page.screenshot({ path: screenshotPath, clip });
       console.log('Screenshot salva em', screenshotPath);

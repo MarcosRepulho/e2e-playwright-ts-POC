@@ -65,6 +65,10 @@ export class InventoryPage {
     await btn.waitFor({ state: 'visible', timeout: 5000 });
     await btn.click();
     // aguardar remoção do item do carrinho
-    await this.page.locator('.cart_item').nth(index).waitFor({ state: 'detached', timeout: 5000 }).catch(() => undefined);
+    await this.page
+      .locator('.cart_item')
+      .nth(index)
+      .waitFor({ state: 'detached', timeout: 5000 })
+      .catch(() => undefined);
   }
 }

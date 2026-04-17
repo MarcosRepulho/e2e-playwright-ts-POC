@@ -16,7 +16,15 @@ const fs = require('fs');
     const box = await testItem.boundingBox();
     if (box) {
       const screenshotPath = 'reports/report-invalid-test.png';
-      await page.screenshot({ path: screenshotPath, clip: { x: Math.max(0, box.x - 20), y: Math.max(0, box.y - 120), width: Math.min(1100, box.width + 40), height: Math.min(700, box.height + 240) } });
+      await page.screenshot({
+        path: screenshotPath,
+        clip: {
+          x: Math.max(0, box.x - 20),
+          y: Math.max(0, box.y - 120),
+          width: Math.min(1100, box.width + 40),
+          height: Math.min(700, box.height + 240),
+        },
+      });
       console.log('Screenshot salva em', screenshotPath);
     } else {
       // fallback: full page screenshot

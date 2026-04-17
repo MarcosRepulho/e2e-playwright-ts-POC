@@ -11,7 +11,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html', { open: 'never', outputFolder: 'reports/html' }],
-    ['junit', { outputFile: 'reports/junit/results.xml' }]
+    ['junit', { outputFile: 'reports/junit/results.xml' }],
   ],
   use: {
     headless: true,
@@ -22,10 +22,8 @@ export default defineConfig({
     ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
   },
-  projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } }
-  ],
-  outputDir: 'reports/artifacts'
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  outputDir: 'reports/artifacts',
 });

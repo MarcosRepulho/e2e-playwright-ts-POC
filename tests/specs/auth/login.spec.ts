@@ -68,10 +68,7 @@ test.describe('Fluxo de login', () => {
     // 'problem_user' faz login, mas pode apresentar falhas visuais
     await login.username.fill('problem_user');
     await login.password.fill('secret_sauce');
-    await Promise.all([
-      page.waitForNavigation({ url: '**/inventory.html' }),
-      login.submit.click()
-    ]);
+    await Promise.all([page.waitForNavigation({ url: '**/inventory.html' }), login.submit.click()]);
     await expect(page).toHaveURL(/inventory.html/);
     // checar título de produtos como prova de login
     await expect(page.locator('text=Products')).toBeVisible();

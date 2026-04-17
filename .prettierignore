@@ -1,0 +1,9 @@
+node_modules/
+reports/
+reports/artifacts/
+reports/html/
+reports/junit/
+.playwright/
+.vscode/
+dist/
+coverage/

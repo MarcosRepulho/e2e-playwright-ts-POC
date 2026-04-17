@@ -24,7 +24,7 @@ export class LoginPage {
     await this.password.fill(pass);
     await Promise.all([
       this.page.waitForNavigation({ url: '**/inventory.html' }),
-      this.submit.click()
+      this.submit.click(),
     ]);
   }
 

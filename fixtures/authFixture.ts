@@ -6,6 +6,6 @@ export async function loginViaUI(page: Page, username = 'demo-user', password = 
   await page.fill('#password', password);
   await Promise.all([
     page.waitForNavigation({ url: '**/dashboard' }),
-    page.click('button[type=submit]')
+    page.click('button[type=submit]'),
   ]);
 }
