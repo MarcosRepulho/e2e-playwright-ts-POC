@@ -23,14 +23,14 @@ export class InventoryPage {
     await this.menuButton.click();
   }
 
-  async logout() {
+  async logout(): Promise<void> {
     // realiza logout e aguarda voltar para a tela de login
     await this.openMenu();
     await this.logoutLink.click();
     await this.page.waitForSelector('#login-button');
   }
 
-  async addItemByIndex(index: number) {
+  async addItemByIndex(index: number): Promise<void> {
     const addBtn = this.inventoryItems.nth(index).locator('button:has-text("Add to cart")');
     await addBtn.waitFor({ state: 'visible', timeout: 5000 });
     await addBtn.click();
@@ -39,7 +39,7 @@ export class InventoryPage {
     await removeBtn.waitFor({ state: 'visible', timeout: 5000 });
   }
 
-  async removeItemByIndex(index: number) {
+  async removeItemByIndex(index: number): Promise<void> {
     const removeBtn = this.inventoryItems.nth(index).locator('button:has-text("Remove")');
     await removeBtn.waitFor({ state: 'visible', timeout: 5000 });
     await removeBtn.click();
@@ -60,7 +60,7 @@ export class InventoryPage {
     await this.page.waitForSelector('.cart_list');
   }
 
-  async removeFromCartByIndex(index: number) {
+  async removeFromCartByIndex(index: number): Promise<void> {
     const btn = this.page.locator('.cart_item').nth(index).locator('button:has-text("Remove")');
     await btn.waitFor({ state: 'visible', timeout: 5000 });
     await btn.click();
