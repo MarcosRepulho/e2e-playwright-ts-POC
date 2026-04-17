@@ -12,6 +12,7 @@
     "prettier": "^2.8.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1"
+    ,"@types/node": "^20.9.0"
   },
   "scripts": {
     "test": "playwright test",
