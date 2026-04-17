@@ -34,7 +34,6 @@ test.describe('Fluxo do carrinho', () => {
     await login.goto();
     await login.login('standard_user', 'secret_sauce');
 
-    const inventory = new InventoryPage(page);
     // adicionar dois itens usando os botões visíveis
     const addButtons2 = page.locator('button:has-text("Add to cart")');
     await addButtons2.first().click();

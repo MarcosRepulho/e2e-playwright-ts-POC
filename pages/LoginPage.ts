@@ -19,7 +19,7 @@ export class LoginPage {
     await this.page.goto('/');
   }
 
-  async login(user: string, pass: string) {
+  async login(user: string, pass: string): Promise<void> {
     await this.username.fill(user);
     await this.password.fill(pass);
     await Promise.all([
@@ -28,7 +28,7 @@ export class LoginPage {
     ]);
   }
 
-  async isLogged() {
+  async isLogged(): Promise<boolean> {
     // verifica se a página de produtos está visível
     return this.page.locator('text=Products').isVisible();
   }
