@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import { SELECTORS } from '../utils/selectors';
 
 export class InventoryPage {
   readonly page: Page;
@@ -10,12 +11,12 @@ export class InventoryPage {
 
   constructor(page: Page) {
     this.page = page;
-    // seletores da página de inventário para abrir o menu e deslogar
-    this.menuButton = page.locator('#react-burger-menu-btn');
-    this.logoutLink = page.locator('#logout_sidebar_link');
-    this.cartLink = page.locator('.shopping_cart_link');
-    this.cartBadge = page.locator('.shopping_cart_badge');
-    this.inventoryItems = page.locator('.inventory_item');
+    // seletores da página de inventário (centralizados)
+    this.menuButton = page.locator(SELECTORS.inventory.menuButton);
+    this.logoutLink = page.locator(SELECTORS.inventory.logoutLink);
+    this.cartLink = page.locator(SELECTORS.inventory.cartLink);
+    this.cartBadge = page.locator(SELECTORS.inventory.cartBadge);
+    this.inventoryItems = page.locator(SELECTORS.inventory.inventoryItems);
   }
 
   async openMenu() {

@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import { SELECTORS } from '../utils/selectors';
 
 export class LoginPage {
   readonly page: Page;
@@ -8,10 +9,10 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    // seletores da página de login do saucedemo
-    this.username = page.locator('#user-name');
-    this.password = page.locator('#password');
-    this.submit = page.locator('#login-button');
+    // seletores da página de login do saucedemo (centralizados)
+    this.username = page.locator(SELECTORS.login.username);
+    this.password = page.locator(SELECTORS.login.password);
+    this.submit = page.locator(SELECTORS.login.submit);
   }
 
   async goto() {
