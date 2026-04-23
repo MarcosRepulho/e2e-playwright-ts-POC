@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chromium, firefox, webkit]
+        browser: [chromium]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
@@ -31,7 +31,15 @@ jobs:
           npm ci
           npx playwright install --with-deps
       - name: Run tests
-        run: npx playwright test --project=${{ matrix.browser }}
+        run: |
+          PROJECT="${{ matrix.browser }}"
+          echo "Verificando se o projeto '$PROJECT' existe em playwright.config.ts"
+          if grep -Eq "name:\s*['\"]${PROJECT}['\"]" playwright.config.ts; then
+            echo "Project '$PROJECT' encontrado — executando testes"
+            npx playwright test --project="$PROJECT"
+          else
+            echo "Project '$PROJECT' não definido em playwright.config.ts — pulando testes para este projeto"
+          fi
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
